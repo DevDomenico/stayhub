@@ -4,11 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Homepage from './routes/home/Homepage';
+import Login from './routes/login/Login';
+import Error from './routes/error/Error';
+
+const router = createBrowserRouter([
+  {
+      path: "/",
+      element: <Homepage />,
+      errorElement: <Error/>,
+  },
+  { path: "home"    , element: <Homepage /> },
+  
+  { path: "login"   , element: <Login /> },
+  
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+     <RouterProvider router={router} />
   </React.StrictMode>
 );
 
@@ -16,3 +32,6 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+
