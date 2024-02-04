@@ -1,20 +1,24 @@
-import React , { useState } from "react";
 
-import Navbars from "../../components/navbar/Navbars";
-
+import React, { useState } from "react";
 import axios from "axios";
 
 
+import Navbars from "../../components/navbar/Navbars";
+
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
+    console.log(email, password)
+    console.log({
+      email,
+      password,
+    });
     try {
-      const response = await axios.post("/api/login", null, {
-        headers: {
-          Authorization: `Bearer ${username}:${password}`,
-        },
+      const response = await axios.post("http://localhost:3030/users/login", {
+        email,
+        password,
       });
       console.log("Login successful:", response.data);
     } catch (error) {
@@ -29,9 +33,9 @@ const Login = () => {
         <h2>Login</h2>
         <input
           type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
