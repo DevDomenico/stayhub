@@ -1,9 +1,11 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import './Footer.css';
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className='footer'>
+
             <div>© 2024 StayHub. A product of Domenico Zungri</div>
             <div>
                 <a href="https://github.com/link-to-github"><FaGithub /></a>
