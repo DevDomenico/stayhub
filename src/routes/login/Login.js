@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import Navbars from "../../components/navbar/Navbars";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,10 +27,7 @@ const Login = () => {
     }
   };
 
-  const handleRegister = () => {
-    // Implementa la logica per il pulsante "Registrati"
-    console.log("Registrati clicked");
-  };
+ 
 
   return (
     <div className="login-page">
@@ -50,8 +50,9 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <div className="button-container">
-            <button onClick={handleLogin}>Accedi</button>
-            <button onClick={handleRegister}>Registrati</button>
+          <button onClick={() => navigate("/register")}>Registrati</button>
+          <button onClick={ handleLogin}>Accedi</button>
+                       
           </div>
         </div>
       </div>

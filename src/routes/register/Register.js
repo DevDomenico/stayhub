@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import Navbars from "../../components/navbar/Navbars";
 import "./Register.css";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-   
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
@@ -66,6 +67,7 @@ const Register = () => {
                     <div className="button-container">
                         
                         <button onClick={handleRegister}>Registrati</button>
+                        <button onClick={() => navigate("/login")}>Accedi</button>
                     </div>
                 </div>
             </div>
